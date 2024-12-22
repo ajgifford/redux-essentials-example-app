@@ -8,14 +8,14 @@ import { LoginPage } from './features/auth/loginPage'
 import { useAppSelector } from './app/hooks'
 import { selectCurrentUsername } from './features/auth/authSlice'
 
-const ProtectedRoute = ({children}: { children: React.ReactNode}) => {
-  const username = useAppSelector(selectCurrentUsername);
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const username = useAppSelector(selectCurrentUsername)
 
-  if(!username){
-    return <Navigate to="/" replace/>
+  if (!username) {
+    return <Navigate to="/" replace />
   }
 
-  return children;
+  return children
 }
 
 function App() {
@@ -24,16 +24,19 @@ function App() {
       <Navbar />
       <div className="App">
         <Routes>
-          <Route path="/" element={<LoginPage/>}/>
-          <Route path="/*" element={
-            <ProtectedRoute>
-              <Routes>
-                <Route path='/posts' element={<PostsMainPage/>}/>
-                <Route path='/posts/:postId' element={<SinglePostPage/>}/>
-                <Route path='/editPost/:postId' element={<EditPostForm/>}/>
-              </Routes>
-            </ProtectedRoute>
-          }/>
+          <Route path="/" element={<LoginPage />} />
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute>
+                <Routes>
+                  <Route path="/posts" element={<PostsMainPage />} />
+                  <Route path="/posts/:postId" element={<SinglePostPage />} />
+                  <Route path="/editPost/:postId" element={<EditPostForm />} />
+                </Routes>
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </div>
     </Router>

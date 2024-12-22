@@ -1,10 +1,13 @@
-import { AddPostForm } from "./addPostsForm"
-import { PostsList } from "./postsList"
+import { AddPostForm } from './addPostsForm'
+import { PostsList } from './postsList'
 
 const PostsMainPage = () => {
-    return (
-        <><AddPostForm /><PostsList /></>
-    )
+  return (
+    <>
+      <AddPostForm />
+      <PostsList />
+    </>
+  )
 }
 
-export default PostsMainPage;
+export default PostsMainPage

@@ -1,14 +1,14 @@
-import { RootState } from '@/app/store';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '@/app/store'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface AuthState {
-  username: string | null;
+  username: string | null
 }
 
 const initialState: AuthState = {
   // Note: a real app would probably have more complex auth state,
   // but for this example we'll keep things simple
-  username: null
+  username: null,
 }
 
 const authSlice = createSlice({
@@ -20,11 +20,11 @@ const authSlice = createSlice({
     },
     userLoggedOut(state) {
       state.username = null
-    }
-  }
-});
+    },
+  },
+})
 
-export const { userLoggedIn, userLoggedOut } = authSlice.actions;
-export const selectCurrentUsername = (state: RootState) => state.auth.username;
+export const { userLoggedIn, userLoggedOut } = authSlice.actions
+export const selectCurrentUsername = (state: RootState) => state.auth.username
 
-export default authSlice.reducer;
+export default authSlice.reducer
