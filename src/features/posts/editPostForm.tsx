@@ -13,7 +13,7 @@ interface EditPostFormElements extends HTMLFormElement {
 export const EditPostForm = () => {
   const { postId } = useParams()
 
-  const post = useAppSelector((state) => state.posts.find((post) => post.id == postId))
+  const post = useAppSelector((state) => state.posts.posts.find((post) => post.id == postId))
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
